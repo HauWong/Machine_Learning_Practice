@@ -5,7 +5,7 @@
     2. [决策树](https://github.com/HauWong/Machine_Learning_Practice#%E5%86%B3%E7%AD%96%E6%A0%91) *[decision_tree.py](https://github.com/HauWong/Machine_Learning_Practice/blob/master/py_files/decision_tree.py)*
 - 无监督学习
 	- 聚类
-	  1. Kmeans
+	  1. [Kmeans](https://github.com/HauWong/Machine_Learning_Practice#kmeans) *[kmeans](https://github.com/HauWong/Machine_Learning_Practice/tree/master/cpp_files/kmeans)*
 	- 降维
 	  1. [主成分分析(PCA)](https://github.com/HauWong/Machine_Learning_Practice#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90pca) *[pca.py](https://github.com/HauWong/Machine_Learning_Practice/blob/master/py_files/pca.py)*
 
