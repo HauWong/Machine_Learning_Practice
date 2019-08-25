@@ -6,8 +6,8 @@
 - 监督学习
     1. [k近邻](https://github.com/HauWong/Machine_Learning_Practice#k%E8%BF%91%E9%82%BB) *[knn.py](py_files/knn.py)*
     2. [决策树](https://github.com/HauWong/Machine_Learning_Practice#%E5%86%B3%E7%AD%96%E6%A0%91) *[decision_tree.py](py_files/decision_tree.py)*
-    3. [朴素贝叶斯分类](https://github.com/HauWong/Machine_Learning_Practice#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB)
-    4. [支持向量机](https://github.com/HauWong/Machine_Learning_Practice#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA) *[bayes.py](py_files/bayes.py)*
+    3. [朴素贝叶斯分类](https://github.com/HauWong/Machine_Learning_Practice#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB) *[bayes.py](py_files/bayes.py)*
+    4. [支持向量机](https://github.com/HauWong/Machine_Learning_Practice#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA)
 - 无监督学习
 	- 聚类
 	  1. [K-Means](https://github.com/HauWong/Machine_Learning_Practice#k-means) *[kmeans](cpp_files/kmeans)*
