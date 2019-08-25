@@ -1,18 +1,18 @@
 # 机器学习部分算法笔记与实现
-简单描述几个算法的原理和适用范围总结（部分来自*Machine Learning in Action -- **Peter Harrington***），并附基本的实现代码。
+简单描述几个算法的原理和适用范围总结（大部分来自*Machine Learning in Action -- **Peter Harrington***），并附基本的实现代码。
 
 ---
 ## 目录
 - 监督学习
-    1. [k近邻](https://github.com/HauWong/Machine_Learning_Practice#k%E8%BF%91%E9%82%BB) *[knn.py](https://github.com/HauWong/Machine_Learning_Practice/blob/master/py_files/knn.py)*
-    2. [决策树](https://github.com/HauWong/Machine_Learning_Practice#%E5%86%B3%E7%AD%96%E6%A0%91) *[decision_tree.py](https://github.com/HauWong/Machine_Learning_Practice/blob/master/py_files/decision_tree.py)*
-    3. 朴素贝叶斯分类
-    4. 支持向量机
+    1. [k近邻](https://github.com/HauWong/Machine_Learning_Practice#k%E8%BF%91%E9%82%BB) *[knn.py](py_files/knn.py)*
+    2. [决策树](https://github.com/HauWong/Machine_Learning_Practice#%E5%86%B3%E7%AD%96%E6%A0%91) *[decision_tree.py](py_files/decision_tree.py)*
+    3. [朴素贝叶斯分类](https://github.com/HauWong/Machine_Learning_Practice#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB)
+    4. [支持向量机](https://github.com/HauWong/Machine_Learning_Practice#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA) *[bayes.py](py_files/bayes.py)*
 - 无监督学习
 	- 聚类
-	  1. [K-Means](https://github.com/HauWong/Machine_Learning_Practice#k-means) *[kmeans](https://github.com/HauWong/Machine_Learning_Practice/tree/master/cpp_files/kmeans)*
+	  1. [K-Means](https://github.com/HauWong/Machine_Learning_Practice#k-means) *[kmeans](cpp_files/kmeans)*
 	- 降维
-	  1. [主成分分析(PCA)](https://github.com/HauWong/Machine_Learning_Practice#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90pca) *[pca.py](https://github.com/HauWong/Machine_Learning_Practice/blob/master/py_files/pca.py)*
+	  1. [主成分分析(PCA)](https://github.com/HauWong/Machine_Learning_Practice#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90pca) *[pca.py](py_files/pca.py)*
 
 ## k近邻
 > 存在一个样本数据集合，也称作训练样本集，并且样本集中每个数据都具有唯一标签即所属类别，和对应特征。输入一个类别未知的新数据后，将新数据的特征与样本集中数据对应的特征进行比较，选择样本数据集中前k个与新数据特征最相近的数据，选择k个数据中出现次数最多的分类作为新数据的类别。  
