@@ -78,4 +78,4 @@ if __name__ == "__main__":
     test = np.insert(test, 2, values=b, axis=1)
     test_labels = [1, 0, 0, 0, 1, 1, 0, 1]
     print('Labels  : ', test_labels)
-    print('Results : ', [judge(_) for _ in test*W])
+    print('Results : ', [judge(_) for _ in sigmoid(test*W)])
