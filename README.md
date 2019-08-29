@@ -7,7 +7,7 @@
     1. [k近邻](https://github.com/HauWong/Machine_Learning_Practice#k%E8%BF%91%E9%82%BB) *[knn.py](py_files/knn.py)*
     2. [决策树](https://github.com/HauWong/Machine_Learning_Practice#%E5%86%B3%E7%AD%96%E6%A0%91) *[decision_tree.py](py_files/decision_tree.py)*
     3. [朴素贝叶斯分类](https://github.com/HauWong/Machine_Learning_Practice#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB) *[bayes.py](py_files/bayes.py)*
-    4. Logistic回归
+    4. [Logistic回归](https://github.com/HauWong/Machine_Learning_Practice#%E9%80%BB%E8%BE%91logistic%E5%9B%9E%E5%BD%92) *[logistic_regression.py](py_files/logistic_regression.py)*
     5. [支持向量机](https://github.com/HauWong/Machine_Learning_Practice#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA)
 - 无监督学习
 	- 聚类
@@ -48,16 +48,16 @@
 > 首先要明确一点，尽管名字中带有“回归”二字，但逻辑回归实际上是一种二分类算法而不是回归算法。二分类是指输出结果非0即1，一般用以判断某事物的两种可能性，比如是否患病、是否正确等。要实现二分类，Logistic回归引入Sigmoid函数，Sigmoid函数是一个S形曲线，如图所示，其值介于0和1之间。一般，当其函数值大于0.5时，便将其分为1类；若其值小于0.5，则分为0类。  
 > ![Sigmoid函数公式](images/sigmoid.png) ![Sigmoid函数曲线](images/sigmoid.jpg)  
 > 关键在于如何由给定数据的特征向量得到上式中的***z***。对于一般的二分类任务，通常会给定数据的特征向量，包含多种特征，Sigmoid函数中的输入***z***，由参数向量与特征向量相乘得到，即  
-> ![](images/linear.png)  
-> 其中参数![](images/weight.png)等通过训练获得。训练方法有多种可选，如梯度下降法。
+> ![](images/linear.PNG)  
+> 其中参数![](images/weight.PNG)等通过训练获得。训练方法有多种可选，如梯度下降法。
 > > **梯度下降法**  
 > - 损失函数：训练的目的是获得能使样本的预测结果与真实值尽量接近的一组参数，而预测结果与真实值之间的差别通常称之为损失，因此计算损失的函数便是损失函数，计算全体样本平均损失的函数通常称为代价函数。
 > - 梯度下降：为了使损失值最小，需要在训练过程中对参数进行修正，使其向损失值快速变小的方向更新，即梯度下降的方向，最终会达到损失函数的局部最小值，此时获得的参数即局部最优参数。  
 > 
 > 逻辑回归算法常用的损失函数比如交叉熵函数（如下），其中***o***表示真值，***y***表示预测值，详细讲解见[知乎文章](https://zhuanlan.zhihu.com/p/38241764)。  
-> ![交叉熵损失函数](images/cross_entropy.png)  
+> ![交叉熵损失函数](images/cross_entropy.PNG)  
 > 其梯度计算公式如下，其中***h***表示当前权重对应的特征值。  
-> ![梯度计算](images/cross_ent_gradient.png)  
+> ![梯度计算](images/cross_ent_gradient.PNG)  
 > 备注：  
 > 1. 逻辑回归与线性回归的关系：逻辑回归不是回归算法，其假设数据服从伯努利分布，而线性回归是一种回归算法，其假设数据服从高斯分布。实际上，若去除Sigmoid函数部分，逻辑回归也是最简单的线性回归，但其经过Sigmoid转换后，对结果进行了二分类，便是一种分类算法。
 > 2. 在神经网络研究中，Sigmoid函数也称为一种激活函数，其目的是使层输出结果非线性化。
