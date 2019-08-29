@@ -17,10 +17,10 @@ def cross_entropy(labels, predicts):
     """ 计算交叉熵 """
 
     sample_num = labels.shape[0]
-    sum = 0
+    cross_ent_sum = 0
     for i in range(sample_num):
-        sum -= (labels[i]*math.log(predicts[i]) + (1 - labels[i])*math.log(1-predicts[i]))
-    return float(sum/sample_num)
+        cross_ent_sum -= (labels[i]*math.log(predicts[i]) + (1 - labels[i])*math.log(1-predicts[i]))
+    return float(cross_ent_sum/sample_num)
 
 
 def gradient_decent(features_mat, error, weights, alpha=0.01):
