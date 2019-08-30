@@ -26,8 +26,8 @@ def cross_entropy(labels, predicts):
 def gradient_decent(features_mat, error, weights, alpha=0.01):
 
     """ 梯度下降，更新权重 """
-
-    gradient = features_mat.transpose()*error
+    sample_num = features_mat.shape[0]
+    gradient = (features_mat.transpose()*error)/sample_num
     return weights - alpha*gradient
 
 
