@@ -118,8 +118,8 @@
 
 ![](http://latex.codecogs.com/gif.latex?\min_\alpha\frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_jy_iy_j\langle{x_i,x}\rangle-\sum_{i=1}^n\alpha_i,s.t.\sum_{i=1}^n\alpha_iy_i=0,\alpha_i\geq{0})。
 求得最优解![](http://latex.codecogs.com/gif.latex?\alpha^*)后，可以根据上述求导结果和KKT条件得到
-<center>![](http://latex.codecogs.com/gif.latex?w^*=\sum_{i=1}^n\alpha_i^*y_ix_i)  
-![](http://latex.codecogs.com/gif.latex?b^*=y_i-\sum_{i=1}^n\alpha_i^*y_i\langle{x_i,x}\rangle)</center>
+![](http://latex.codecogs.com/gif.latex?w^*=\sum_{i=1}^n\alpha_i^*y_ix_i)  
+![](http://latex.codecogs.com/gif.latex?b^*=y_i-\sum_{i=1}^n\alpha_i^*y_i\langle{x_i,x}\rangle)
 
 > 此处对支持向量进行解释，从KKT条件中的第四个等式（称为松弛互补条件）可以看出，当![](http://latex.codecogs.com/gif.latex?y_i(w^Tx_i+b)-1={0})时，数据点![](http://latex.codecogs.com/gif.latex?x_i)刚好位于距离决策面最近的位置，松弛互补条件会始终满足，这些数据点即支持向量；当![](http://latex.codecogs.com/gif.latex?y_i(w^Tx_i+b)-1>{0})时，此时数据点![](http://latex.codecogs.com/gif.latex?x_i)距离分隔面更远（相比于支持向量），此时要想满足松弛条件，则要求![](http://latex.codecogs.com/gif.latex?\alpha_i=0)，因此实际上在SVM分类器中发挥作用的只有支持向量，其他数据点对决策面没有影响。
 
