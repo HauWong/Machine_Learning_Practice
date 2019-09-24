@@ -25,7 +25,7 @@
 确定一个生物是否是鱼时，可能会先根据“在水下是否能生活”、“是否有脚蹼”两种特征来判断，比如首先判断“在水下是否能生活”，如果“否”则该生物一定不是鱼，如果“是”则判断“是否有脚蹼”，如果“是”则一定不是鱼，如果“否”则是鱼。以上过程即一个简单的决策树的分类过程。   
 
 在构建决策树时，需要根据给定的数据集确定特征判断的次序，如上述先判断“水下是否能生活”再判断“是否有脚蹼”，而确定哪种特征优先的过程要用到“熵”。首先计算根据不同的特征划分数据集时信息增益的变化，即熵的变化，选择使信息增益最高的特征作为当先划分数据集的最优特征；然后分别针对划分后的多个子数据集判断增益，如果当前子数据集完全属于同类，则当前分支结束，继续在其他子数据集中寻找使信息增益最高的特征，即重复上步过程，直至稳定；此时已构建好决策树。  
-<center>![](http://latex.codecogs.com/gif.latex?H(X)=-\sum_{i=1}^np(x_i)\log{p(x_i)})</center>  
+![](http://latex.codecogs.com/gif.latex?H(X)=-\sum_{i=1}^np(x_i)\log{p(x_i)})
 
 > - 优点：计算复杂度不高，输出结果易于理解，对中间值的缺失不敏感，可以处理不相关特征数据；
 > - 缺点：易产生过拟合问题；
@@ -34,7 +34,7 @@
 ## 朴素贝叶斯分类
 贝叶斯分类的核心思想为：在已知先验概率的情况下，计算数据属于某类别的后验概率，用*p1*表示数据属于类别1的概率，*p2*表示数据属于类别2的概率，若*p1*>*p2*则为类别1，若*p2*>*p1*则为类别2。那么如何得到*p1*和*p2*呢？答案是通过贝叶斯公式。    
 
-<center>![](http://latex.codecogs.com/gif.latex?P(C|B)=\frac{P(B|C)P(C)}{P(B)})</center>  
+![](http://latex.codecogs.com/gif.latex?P(C|B)=\frac{P(B|C)P(C)}{P(B)})
 
 > 概念解释：  
 > - **先验概率**：通过数据统计直接可得的概率分布，如上式中的*P(B)*和*P(C)*；  
@@ -49,9 +49,9 @@
 ## 逻辑(Logistic)回归
 首先要明确一点，尽管名字中带有“回归”二字，但逻辑回归实际上是一种二分类算法而不是回归算法。二分类是指输出结果非0即1，一般用以判断某事物的两种可能性，比如是否患病、是否正确等。要实现二分类，Logistic回归引入Sigmoid函数，Sigmoid函数是一个S形曲线，如图所示，其值介于0和1之间。一般，当其函数值大于0.5时，便将其分为1类；若其值小于0.5，则分为0类。  
 
-<center>![](http://latex.codecogs.com/gif.latex?f(z)=\frac{1}{1+e^{-z}})</center>  
+![](http://latex.codecogs.com/gif.latex?f(z)=\frac{1}{1+e^{-z}})
 
-<center>![Sigmoid函数曲线](images/sigmoid.jpg)</center>  
+![Sigmoid函数曲线](images/sigmoid.jpg)
 关键在于如何由给定数据的特征向量得到上式中的![](http://latex.codecogs.com/gif.latex?z)。对于一般的二分类任务，通常会给定数据的特征向量，包含多种特征，Sigmoid函数中的输入![](http://latex.codecogs.com/gif.latex?z)，由参数向量与特征向量相乘得到，即![](http://latex.codecogs.com/gif.latex?z=w_0x0+w_1x_1+w_2x_2+...+w_nx_n)，其中参数![](http://latex.codecogs.com/gif.latex?w_n)等通过训练获得。训练方法有多种可选，如梯度下降法。
 > **梯度下降法**  
 - 损失函数：训练的目的是获得能使样本的预测结果与真实值尽量接近的一组参数，而预测结果与真实值之间的差别通常称之为损失，因此计算损失的函数便是损失函数，计算全体样本平均损失的函数通常称为代价函数。  
@@ -59,11 +59,11 @@
 
 逻辑回归算法常用的损失函数比如交叉熵函数（如下），其中 ***o*** 表示真值，***y*** 表示预测值，详细讲解见[知乎文章](https://zhuanlan.zhihu.com/p/38241764)。  
 
-<center>![](http://latex.codecogs.com/gif.latex?L_{cross-entropy}(o,y)=-(o\log{y}+(1-o)\log{1-y}))</center>  
+![](http://latex.codecogs.com/gif.latex?L_{cross-entropy}(o,y)=-(o\log{y}+(1-o)\log{1-y}))
 
 其梯度计算公式如下，其中 ***h*** 表示当前权重对应的特征值。  
 
-<center>![](http://latex.codecogs.com/gif.latex?\frac{\partial{L_{cross-entropy}}}{\partial{w}}=-(\frac{o}{y}\cdot{y'}-\frac{1-o}{1-y}\cdot{y'})=-[\frac{o-y}{y(1-y)}\cdot{y'}]=(y-o)h)</center>  
+![](http://latex.codecogs.com/gif.latex?\frac{\partial{L_{cross-entropy}}}{\partial{w}}=-(\frac{o}{y}\cdot{y'}-\frac{1-o}{1-y}\cdot{y'})=-[\frac{o-y}{y(1-y)}\cdot{y'}]=(y-o)h)  
 
 > 备注：  
 > 1. 逻辑回归与线性回归的关系：逻辑回归不是回归算法，其假设数据服从伯努利分布，而线性回归是一种回归算法，其假设数据服从高斯分布。实际上，若去除Sigmoid函数部分，逻辑回归也是最简单的线性回归，但其经过Sigmoid转换后，对结果进行了二分类，便是一种分类算法。  
@@ -85,16 +85,16 @@
 **2. 凸优化问题**  
 从两种间隔的形式可以看出，一旦超平面确定，则![](http://latex.codecogs.com/gif.latex?w)和![](http://latex.codecogs.com/gif.latex?b)可以等比例缩放，但此时函数间隔会发生变化，而几何间隔不会变，因此选用几何间隔作为衡量数据点到超平面距离的标更加合理。既然函数间隔可以缩放，那为了计算方便，不妨令![](http://latex.codecogs.com/gif.latex?\hat\gamma=y_i(w^Tx_i+b)\geq{1})，此时欲得到取得最近数据点的最大几何间隔![](http://latex.codecogs.com/gif.latex?\max_{w,b}\min_{i}\frac{y_i(w^Tx_i+b)}{||w||})时的![](http://latex.codecogs.com/gif.latex?w)和![](http://latex.codecogs.com/gif.latex?b)，即求![](http://latex.codecogs.com/gif.latex?\max_{w,b}\frac{1}{||w||})。稍加转化，可将其转换为如下形式：
 
-<center>![](http://latex.codecogs.com/gif.latex?\min_{w,b}\frac{1}{2}||w||^2,s.t.y_i(w^Tx_i+b)\geq{1},i=1,2,...,n)</center>
+![](http://latex.codecogs.com/gif.latex?\min_{w,b}\frac{1}{2}||w||^2,s.t.y_i(w^Tx_i+b)\geq{1},i=1,2,...,n)
 
 **3. 拉格朗日算子优化**  
 上述形式为带有约束条件的凸优化问题，采用拉格朗日乘子法进行优化，即可转换为：
 
-<center>![](http://latex.codecogs.com/gif.latex?\min_{w,b}\max_{\alpha}{L(w,b,\alpha),\alpha\geq{0}})</center>
+![](http://latex.codecogs.com/gif.latex?\min_{w,b}\max_{\alpha}{L(w,b,\alpha),\alpha\geq{0}})
 
 其中，![](http://latex.codecogs.com/gif.latex?L(w,b,\alpha))即由上述优化问题得到的拉格朗日函数，形式为：
 
-<center>![](http://latex.codecogs.com/gif.latex?L(w,b,\alpha)=\frac{1}{2}||w||^2-\sum_{i=1}^n\alpha_i(y_i(w^Tx_i+b)-1),s.t.\alpha_i\geq{0})</center>
+![](http://latex.codecogs.com/gif.latex?L(w,b,\alpha)=\frac{1}{2}||w||^2-\sum_{i=1}^n\alpha_i(y_i(w^Tx_i+b)-1),s.t.\alpha_i\geq{0})
 
 > 此处对上述最大化拉格朗日函数值进行解释，由前面知，该凸优化问题的约束条件为![](http://latex.codecogs.com/gif.latex?y_i(w^Tx_i+b)\geq{1},i=1,2,...,n)，则![](http://latex.codecogs.com/gif.latex?y_i(w^Tx+b)-1\geq{0})，此时![](http://latex.codecogs.com/gif.latex?\sum_{i=1}^n\alpha_i(y_i(w^Tx_i+b)-1),s.t.\alpha_i\geq{0})最小值为0，即![](http://latex.codecogs.com/gif.latex?\\max_{\alpha}{L(w,b,\alpha))刚好等于![](http://latex.codecogs.com/gif.latex?\frac{1}{2}||w||^2)。
 
@@ -110,7 +110,7 @@
 
 最终可转化为对偶问题：
 
-<center>![](http://latex.codecogs.com/gif.latex?\max_{\alpha}\min_{w,b}{L(w,b,\alpha),s.t.\alpha\geq{0}})</center>
+![](http://latex.codecogs.com/gif.latex?\max_{\alpha}\min_{w,b}{L(w,b,\alpha),s.t.\alpha\geq{0}})
 
 此时可先对![](http://latex.codecogs.com/gif.latex?b)求偏导，可得![](http://latex.codecogs.com/gif.latex?\sum_{i=1}^n\alpha_iy_i=0)，将其代入![](http://latex.codecogs.com/gif.latex?L(w,b,\alpha))再对![](http://latex.codecogs.com/gif.latex?w)求偏导，得到![](http://latex.codecogs.com/gif.latex?w=\sum_{i=1}^n\alpha_iy_ix_i)。因此最优化问题转化为：
 
@@ -126,7 +126,7 @@
 **4. 松弛变量**  
 理想情况下，数据可以通过一个超平面完美地分隔开，但实际情况总是存在一些变异点，使其函数距离小于1，因此引入松弛变量（类似于为决策面建立了一个缓冲区，使一些函数距离小于1的点也能被正确归类），加入松弛变量后的优化函数变为以下形式：
 
-<center>![](http://latex.codecogs.com/gif.latex?\min_{w,b}\frac{1}{2}||w||^2+C\sum_{i=1}^n\xi_i,s.t.y_i(w^Tx_i+b)\geq{1-\xi_i},\xi_i\geq{0},i=1,2,...,n)</center>
+![](http://latex.codecogs.com/gif.latex?\min_{w,b}\frac{1}{2}||w||^2+C\sum_{i=1}^n\xi_i,s.t.y_i(w^Tx_i+b)\geq{1-\xi_i},\xi_i\geq{0},i=1,2,...,n)
 
 **5. 核函数**  
 即便引入松弛变量，数据集可能也无法完美地线性可分，说明数据本身就是线性不可分的。若数据非线性可分，则我们可以将其在更高的维度表达，使其再新的维度中线性可分，从上述最优化求解过程可以看出，最终的最优化问题唯一与数据相关的一项为内积过程，即![](http://latex.codecogs.com/gif.latex?\langle{x_i,x}\rangle)，若将先数据表达为高维度形式，再进行内积操作的话，无疑随着数据原始维度的增加，该过程将非常复杂，且可能出现转化后为无限维的情况。而核函数的作用是，不必先在高维空间中表达数据后作内积，直接计算原始数据得到与高维空间中的内积相似的结果。
@@ -134,13 +134,13 @@
 > **常见的核函数**   
 >
 > 1. 线性核：线性核实际上就是上述所做的原始内积，用于数据是线性可分的情况，参数少速度快，一般作为首先尝试选择，若效果理想则直接使用线性核函数。  
-> <center>![](http://latex.codecogs.com/gif.latex?\kappa(x_i,x)=\langle{x_i,x}\rangle)</center>  
+> ![](http://latex.codecogs.com/gif.latex?\kappa(x_i,x)=\langle{x_i,x}\rangle)  
 >
 > 2. 多项式核：得到的结果与先将数据表达至高维空间后再进行内积的结果一致，参数较多，随着原始空间数据维度的增加，计算会愈加复杂。  
-> <center>![](http://latex.codecogs.com/gif.latex?\kappa(x_i,x)=((x\cdot{x_i})+1)^d)</center>
+> ![](http://latex.codecogs.com/gif.latex?\kappa(x_i,x)=((x\cdot{x_i})+1)^d)
 >   
 > 3. 高斯径向基核：高斯径向基函数是一种局部性强的核函数，其可以将一个样本映射到一个更高维的空间内，该核函数是应用最广的一个，无论大样本还是小样本都有比较好的性能，而且其相对于多项式核函数参数要少，因此大多数情况下在不知道用什么核函数的时候，优先使用高斯核函数（摘自[CSDN博文](https://blog.csdn.net/batuwuhanpei/article/details/52354822)）。   
-> <center>![](http://latex.codecogs.com/gif.latex?\kappa(x_i,x)=\exp(-\frac{||x-x_i^2||^2}{\delta^2}))</center>
+> ![](http://latex.codecogs.com/gif.latex?\kappa(x_i,x)=\exp(-\frac{||x-x_i^2||^2}{\delta^2}))
 
 SVM特点
 > - 优点：准确率高，计算成本低；
