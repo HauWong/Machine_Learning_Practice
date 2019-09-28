@@ -7,7 +7,7 @@
     1. [k近邻](https://github.com/HauWong/Machine_Learning_Practice#k%E8%BF%91%E9%82%BB) *[knn.py](py_files/knn.py)*
     2. [决策树](https://github.com/HauWong/Machine_Learning_Practice#%E5%86%B3%E7%AD%96%E6%A0%91) *[decision_tree.py](py_files/decision_tree.py)*
     3. [朴素贝叶斯分类](https://github.com/HauWong/Machine_Learning_Practice#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB) *[bayes.py](py_files/bayes.py)*
-    4. 极大似然法
+    4. [极大似然法](https://github.com/HauWong/Machine_Learning_Practice#%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E6%B3%95)
     5. [Logistic回归](https://github.com/HauWong/Machine_Learning_Practice#%E9%80%BB%E8%BE%91logistic%E5%9B%9E%E5%BD%92) *[logistic_regression.py](py_files/logistic_regression.py)*
     6. [支持向量机](https://github.com/HauWong/Machine_Learning_Practice#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA)
 - 无监督学习
@@ -71,7 +71,7 @@
 
 因此，最终转变成求解如下值：
 
-![](http://latex.codecogs.com/gif.latex?\hat\theta=\arg\max_\theta\ln(L(\theta)))
+![](http://latex.codecogs.com/gif.latex?\hat\theta=\arg\max_\theta\ln{L(\theta)})
 
 ## 逻辑(Logistic)回归
 首先要明确一点，尽管名字中带有“回归”二字，但逻辑回归实际上是一种二分类算法而不是回归算法。二分类是指输出结果非0即1，一般用以判断某事物的两种可能性，比如是否患病、是否正确等。要实现二分类，Logistic回归引入Sigmoid函数，Sigmoid函数是一个S形曲线，如图所示，其值介于0和1之间。一般，当其函数值大于0.5时，便将其分为1类；若其值小于0.5，则分为0类。  
